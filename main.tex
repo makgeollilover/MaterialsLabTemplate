@@ -1,0 +1,287 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amstext}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage[a4paper, textwidth=16cm, head=14.5pt]{geometry}
+\usepackage{caption}
+\usepackage{comment}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float} % for figure placement with "H"
+\captionsetup[table]{name=Tab.}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black, 
+    filecolor=black,      
+    urlcolor=black,
+    citecolor=black,
+}
+
+\usepackage{geometry}
+\geometry{
+bottom = 2.5cm}
+
+%\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage[automark, headsepline]{scrlayer-scrpage}
+
+\setlength{\parindent}{0px}
+
+%\usepackage{cite}
+
+\usepackage{doi}
+\pagestyle{scrheadings}
+\renewcommand{\headfont}{\normalshape}
+\cfoot{\thepage{} / \pageref{LastPage}}
+
+\newcommand{\angstrom}{\textup{\AA}}
+
+\ihead[]{11.03.2024}
+\chead[]{Friction Stir Welding}
+\ohead[]{Group B}
+
+
+\title{TITEL Dokument}
+\author{Oliver Daxböck, Eggel Anna, Jakob Frei\ss mut, Emilia Hackhofer, Lukas Hasenh\"uttel}
+\date{Erstellungsdatum Month 2022}
+
+%Verweise
+\usepackage{biblatex}
+\addbibresource{literatur.bib}
+
+
+\begin{document}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[scale=0.37]{NAWI_Graz_Logo_2015small.png}
+\end{figure}
+
+
+
+{\text{}
+\begin{center}
+    {\Large
+    \textsc{[MAS140UF] Materials Laboratory} \par}
+    \Huge
+    \vspace{20mm}
+    \textbf{Friction Stir Welding} \par
+\end{center}
+}
+
+{\Large 
+\vspace{5mm}
+%Supervisor: Univ.-Prof. Joachim Krenn \par %ka welcher Name
+\vspace{20mm}
+\textbf{Montag Gruppe 4} \par
+\vspace{8pt}
+Oliver Daxb\"ock \hfill 11902853 \par
+\vspace{8pt}
+Anna Eggel \hfill 01435435 \par
+\vspace{8pt}
+Jakob Frei\ss mut \hfill 11807768 \par
+\vspace{8pt}
+Emilia Hackhofer \hfill 12004791 \par
+\vspace{8pt}
+Lukas Hasenh\"uttel \hfill 11807769 \par
+\vspace{8pt}
+}
+
+{\large
+\vspace{15mm}
+11.03.2024
+}
+
+\thispagestyle{empty}
+\newpage
+
+\tableofcontents
+\setcounter{page}{1}
+
+\newpage
+\section{Tasks}
+Mit einer Wärmepumpe wird Wärme von einem Wasserbehälter in einen anderen gepumpt.
+\begin{itemize}
+    \item Messung des Temperaturverlaufes in zwei Wasserbehältern, der von der Pumpe aufgenommenen Leistung und der Drücke nach Kompression bzw. Expansion im Kältemittelkreislauf über eine Stunde.
+    \item Bestimmung der Leistungszahl und des Gütegrades als Funktion der Temperaturdifferenz.
+    \item Erstellung des p-H-Diagrammes des Kreisprozesses aufgrund der gemessenen Werte zu Beginn und am Ende der Messung.
+\end{itemize}
+
+
+\newpage
+\section{Vorbereitung und Grundlagen}
+\subsection{Die Wärmepumpe}
+Eine Wärmepumpe funktioniert gemäß dem 2. Hauptsatz der Thermodynamik. Über ein Arbeitsmedium wird zunächst die Wärme des kälteren Mediums aufgenommen (adiabatisch und isentrop) und über einen Wärmetauscher an ein wärmeres Medium abgegeben (isobar), wobei das Arbeitsmedium durch das Abkühlen kondensiert. Durch eine Drossel wird das Arbeitsmedium auf einen geringeren Druck entspannt (isenthalpe Expansion). Das Arbeitsmedium nimmt anschließend über einen anderen Wärmetauscher isobar Wärme vom kälteren Medium auf, worauf das Arbeitsmedium verdampft. Das Arbeitsmedium gelangt wieder in die Pumpe und der Prozess wiederholt sich.
+\subsection{Die Leistungszahl}
+Die Leistungszahl ist gegeben als
+\begin{align} \label{eq:1}
+    \epsilon = \frac{\dot{Q}}{P\%}
+\end{align}
+Hierbei ist $\dot{Q}$ der Wärmefluss und $P\%$ die Leistung in Prozent.
+Der Wärmefluss kann genauer angegeben werden durch:
+\begin{align} \label{eq:2}
+    \dot{Q} = cm\frac{dT_2}{dt}
+\end{align}
+Wobei hier $c=4,19\cdot 10^{3} \ Wskg^{-1}K^{-1}$ die spezifische Wärmekapazität von Wasser ist, $m$ ist die Masse und $T_2$ die Temperatur des wärmeren Mediums.
+Bei dem Versuch wird hauptsächlich die Temperaturdifferenz $\Delta T = T_2-T_1$ beobachtet. Je größer der Temperaturunterschied $\Delta T$ zwischen $T_1$ und $T_2$ wird, desto geringer die Zunahme von $\Delta T$.
+\subsection{Der Gütegrad}
+Der thermodynamische Gütegrad ist gegeben durch:
+\begin{align} \label{eq:3}
+    \eta = \frac{\epsilon }{\epsilon_{max}} \\
+    \epsilon_{max} = \frac{T_2}{T_2-T_1} = \frac{1}{\eta_c}
+\end{align}
+$\epsilon_{max}$ ist hierbei die theoretisch maximal erreichbare Leistungszahl und $\eta_c$ der Gütegrad eines linksläufigen Carnot-Prozesses.\cite{pumpenscript}
+\newpage
+
+
+\section{Beschreibung der Versuchsanordnung}
+%Bild
+\begin{figure}[!htbp]
+\begin{center} \includegraphics[width=0.8\linewidth]{versuchsaufbau.png}  
+\caption{
+Aufbau einer Wärmepumpe. 1) Kompressor 2) ausschwenkbare  Stellfläche warmer Behälter 3) Verflüssiger 4) Sammler/Reiniger 5) Expansionsventil 6) Temperaturfühler des Expansionsventils 7) Verdampfung zwischen Kompressor und Wärmetauscher 8) ausschwenkbare Stellfläche kalter Behälter 9) Rohrwindungen 10) Druckwächter 11) Kunststoffschalter für Thermometer und Temperaturfühler 12) Kupfer-Messschuh für Temperaturfühler 13) Manometer für Niederdruckseite 14) Manometer für Hochdruckseite.\cite{pumpenscript}}
+\label{hfab}
+\end{center}
+\end{figure}
+%
+Zusätzlich wurde das Gerät zur Temperaturmessung mit Cassy Lab2 verbunden, um die Temperaturen aufzuzeichnen.
+
+
+
+\newpage
+
+\section{Ger\"ateliste}
+
+
+\begin{table}[!h]
+\caption{Geräteliste}
+\centering
+\label{tab:items}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Gerät}    & \textbf{Hersteller} & \textbf{Typ}      \\ \hline
+Kompressor       & Danfoss & TL3G              \\ \hline
+Druckschalter       & Danfoss & KP7W             \\ \hline
+Temperaturfühler  & LD Didactic &                  \\ \hline
+Digitales Temperaturmessgerät  & LD Didactic &                 \\ \hline
+Verflüssiger  &     &                \\ \hline
+Sammler/Reiniger  &      &              \\ \hline
+Druckwächter  &          &          \\ \hline
+Kupfer-Messschuh  &      &              \\ \hline
+Manometer für Niederdruck & ITE   &                \\ \hline
+Manometer für Hochdruck &  ITE   &                \\  \hline
+
+\end{tabular}
+\end{table}
+
+
+
+
+\newpage
+\section{Versuchsdurchf\"uhrung und Messergebnisse}
+Die Temperaturdaten wurden mit CassyLab2 aufgezeichnet. Während des Versuchs wurden die beiden Behälter durchgehend gerührt um Temperaturschwankungen zu verhindern. Der Druck wurde anfangs und am Ende gemessen.
+
+\begin{table}[!h]
+\caption{Gemessene Werte für den Druck zu Beginn und Ende des Versuchs. Hierbei sind $p_{tief}$ der Tiefdruck und $p_{hoch}$ der Hochdruck. $\Delta p = \pm 0.05$ bar.}
+\centering
+\label{tab:items}
+\begin{tabular}{|c|c|c|}
+\hline
+$t$ / s& $p_{tief}$ / bar & $p_{hoch}$ / Pa      \\ \hline
+0  & 3,75 & 5,30              \\ \hline
+3600  & 1,85 & 16,00             \\ \hline
+
+
+\end{tabular}
+\end{table}
+
+
+%Bild
+\begin{figure}[!htbp]
+\begin{center} \includegraphics[width=0.8\linewidth]{waermepumpe_PLOT.pdf}  
+\caption{
+Aufzeichnung der Temperaturdaten via CassyLab2. In rot die Temperatur $T_2$ des wärmeren Behälters und in schwarz die Temperatur $T_1$ des kälteren Behälters.}
+\label{temperaturverlauf}
+\end{center}
+\end{figure}
+%
+
+\newpage
+
+\section{Auswertung}
+\subsection{Wärmepumpe}
+
+Zuerst wurde der Temperaturverlauf, mit den Drücken an den Start und Endpunkten geplottet. Hierfür wurden dem Datenset jeweils 20 Datenpunkte entnommen und mittels multipler Regression gefittet. Für den Fit wurde eine quadratische Funktion genommen mit den Parametern $\beta_i$:
+%#[[ 0.00000000e+00 -1.07317861e-02  2.11548735e-06]] T1 X0 = 0, X1 ~ -1.07e-02, X2 ~ 2.12e-06
+%#[[ 0.00000000e+00  1.33799510e-02 -1.80525325e-06]] T2 X0 = 0, X1 ~ 1.34e-02, X2 ~ -1.81e-06
+
+\begin{align} \label{eq:5}
+    \hat{Y}(X) = \beta_0 + \beta_1 X + \beta_2 X^2 \\
+    \beta_{0_{T1}} = 18,9210 \pm 0.441 && \beta_{1_{T1}} = -(1,07 \pm 0,10)\cdot 10^{-2} && \beta_{2_{T1}} = (2,115 \pm 0,152) \cdot 10^{-6} \\
+    \beta_{0_{T2}} = 21,2085 \pm 0,318 && \beta_{1_{T2}} = (1,34 \pm 0,001) \cdot 10^{-2} && \beta_{2_{T2}} = (-1,8 \pm 0,11) \cdot 10^{-6}
+\end{align}
+
+%Bild
+\begin{figure}[!htbp]
+\begin{center} \includegraphics[width=0.8\linewidth]{temperaturenverlauf.png}  
+\caption{
+Die Temperaturverläufe wurden mittels einer polynomischen Regression gefitted. Hierfür wurde zur Veranschaulichung die Datenmenge auf 20 Punkte reduziert.}
+\label{temperaturfit}
+\end{center}
+\end{figure}
+%
+\subsection{Leistungszahl und Gütegrad}
+Die Leistungszahl, sowieder Gütegrad können mit den Formeln (\ref{eq:1}) und (\ref{eq:3}) bestimmt werden. Mit Hilfe der Regressionsfunktion aus dem vorherigen Punkt kann durch Ableiten der Wärmefluss berechnet werden. Diese wurden mit der Temperaturdifferenz $\Delta T$ geplottet (siehe Abbildung \ref{leistungsguete}).
+%Bild
+\begin{figure}[!htbp]
+\begin{center} \includegraphics[width=0.8\linewidth]{leistungundguetegrad.png}  
+\caption{
+Die Leistungszahl (links) und der Gütegrad (rechts). Hierfür wurde die Regressionsfunktion einmal nach der Zeit abgeleitet.}
+\label{leistungsguete}
+\end{center}
+\end{figure}
+%
+\subsection{p-H Diagramm}
+%Bild
+\begin{figure}[!htbp]
+\begin{center} \includegraphics[width=0.8\linewidth]{prozess2.png}  
+\caption{
+Der Kreisprozess für die Drücke und Temperaturen eingezeichnet.}
+\label{prozess}
+\end{center}
+\end{figure}
+%
+\newpage
+\section{Diskussion}
+\subsection{Temperaturverlauf}
+Der Temperaturunterschied der beiden Behälter nimmt, wie in Abbildung \ref{temperaturverlauf} zu sehen mit der Zeit zu, jedoch flacht dieser mit der Zeit ab. Dieses Verhalten ist dasselbe, welches man anhand der Literatur \cite{pumpenscript} erwarten würde. Am Anfang der Messung, wie in Abbildung \ref{temperaturfit} zu sehen gab eis einen starken Peak nach unten, welcher sich durch eine technische Schwierigkeit des Temperaturfühlers ergeben hat. Es sind am Anfang des Versuches mehr Schwankungen zu beobachten, da erst gegen Mitte des Versuchs durchgehend die Flüssigkeiten umgerührt wurden. Vorher geschah dies im 30-Sekunden-Takt. Nach Abflachung der Kurven kam es zu leichten Temperaturanstiegen. Diese sind durch Phasenübergänge des Wassers zu erklären, wo es beim Erstarren des Wassers zu einer Energieabgabe kommt.
+\\
+\subsection{Leistungszahl und Gütegrad}
+Bei der Leistungszahl wurde ein etwas linearerer Verlauf erwartet. Die Abweichung ist jedoch nicht zu stark, weshalb der Gütegrad (beides siehe \ref{leistungsguete}) die gewünschte 'Glockenform' hat.
+
+
+
+
+
+\newpage
+\section{Zusammenfassung}
+Temperaturverlauf siehe Tab. 2, Abbildung (\ref{temperaturfit}) und Gleichung (\ref{eq:5}),
+sowie Abbildung (\ref{temperaturverlauf}). \\
+
+Leistungszahl und Gütegrad siehe Abbildung (\ref{leistungsguete}).\\
+
+Für das p-H-Diagramm siehe Abbildung (\ref{prozess}).
+\newpage
+\printbibliography[title = Literatur]
+
+
+
+
+
+\end{document}
